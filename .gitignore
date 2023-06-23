@@ -363,6 +363,3 @@ FodyWeavers.xsd
 /ThirdParty/TempNuget
 /NewRepo2
 /NewRepo
-
-# Monitel
-*.backup_*.sln

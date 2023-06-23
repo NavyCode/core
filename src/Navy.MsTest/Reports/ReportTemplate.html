@@ -1,0 +1,205 @@
+﻿<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title></title>
+    <style type="text/css">
+        .red { color: #b91d47; }
+
+        .limiter {
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .container-table100 {
+            align-items: center;
+            background: #c850c0;
+            background: -webkit-linear-gradient(45deg, #4158d0, #c850c0);
+            background: -o-linear-gradient(45deg, #4158d0, #c850c0);
+            background: -moz-linear-gradient(45deg, #4158d0, #c850c0);
+            background: linear-gradient(45deg, #4158d0, #c850c0);
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 33px 30px;
+            width: 100%;
+        }
+
+        .wrap-table100 { width: 1170px; }
+
+
+        table {
+            background: white;
+            border-collapse: collapse;
+            border-radius: 10px;
+            border-spacing: 1px;
+            margin: 0 auto;
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+        }
+
+        table * { position: relative; }
+
+        table td, table th { padding-left: 8px; }
+
+        table thead tr { background: #647687; }
+
+        table tbody tr { border-bottom: solid 1px #dddddd; }
+
+        table tbody tr:last-child { border: 0; }
+
+        table td, table th {
+            border: none;
+            padding: 10px 0 10px 0;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        table td.l, table th.l { text-align: right; }
+
+        table td.c, table th.c { text-align: center; }
+
+        table td.r, table th.r { text-align: center; }
+
+
+        .table100-head th {
+            border: none;
+            color: #fff;
+            font-family: Tahoma;
+            font-size: 18px;
+            font-weight: unset;
+            line-height: 1.2;
+        }
+
+        tbody tr:nth-child(even) { background-color: #f5f5f5; }
+
+        tbody tr {
+            color: #808080;
+            font-family: Tahoma;
+            font-size: 15px;
+            font-weight: unset;
+            line-height: 1.2;
+        }
+
+        a {
+            color: black;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+
+        tbody tr a {
+            color: #808080;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+
+        tbody tr:hover {
+            background-color: #f5f5f5;
+            color: #555555;
+            cursor: pointer;
+        }
+
+        .column1 {
+            box-sizing: border-box;
+            padding: 10px 20px 10px 20px;
+            width: 40%;
+        }
+
+        .column2 {
+            box-sizing: border-box;
+            padding: 10px 20px 10px 20px;
+            width: 50%;
+        }
+
+        .column3 {
+            box-sizing: border-box;
+            padding: 10px 20px 10px 20px;
+            width: 10%;
+        }
+
+        .error { font-size: 12px; }
+
+        h2 {
+            font-family: Tahoma;
+            font-size: 18px;
+            font-weight: unset;
+        }
+
+        p {
+            font-family: Tahoma;
+            font-size: 14px;
+            font-weight: unset;
+        }
+
+        .steperror {
+            border-top: dotted 1px #808080;
+            color: #b91d47;
+            margin: 10px 0px 0px 0px;
+            padding: 10px 0px 0px 0px;
+        }
+    </style>
+</head>
+<body>
+<div id="view">
+
+</div>
+
+
+<script type="text/javascript">
+    let json = '#allurereport';
+    //     let json = '{"name":"RunWithReport","title":"RunWithReport","description":{"type":1,"Value":""},"testcases":[{"name":"Проверка выполнения запроса среза","title":"Проверка выполнения запроса среза","description":{"type":2,"Value":"Проверка выполнения запроса среза"},"failure":null,"steps":[{"name":"Запросить значения за интервал","title":"Запросить значения за интервал<br />Проанализировать результат","attachments":null,"steps":[{"name":"Запрос отработал без ошибок","title":"Запрос отработал без ошибок","attachments":null,"steps":[],"start":1583928057403,"stop":0,"status":5},{"name":"В ответе есть значения с кодом 0x8000001","title":"В ответе есть значения с кодом 0x8000001","attachments":null,"steps":[],"start":1583928057405,"stop":0,"status":5},{"name":"В ответе есть значения с кодом 0x8000002","title":"В ответе есть значения с кодом 0x8000002","attachments":null,"steps":[],"start":1583928057405,"stop":0,"status":5}],"start":1583928057399,"stop":1583928057585,"status":0}],"attachments":null,"labels":null,"parameters":null,"start":1583928057390,"stop":1583928057585,"status":0,"severitySpecified":false}],"labels":null,"start":1583928057388,"stop":0,"version":null}';
+    let testsuite = JSON.parse(json);
+    let result = "";
+    for (let testcase of testsuite.testcases) {
+        result += '<h2>' + testcase.title + '</h2>';
+        result += '<p>' + testcase.description.Value + '</p>';
+        result +=
+            '<table id="data" bordercolor="#dddddd" border="1"><thead><tr class="table100-head"><th class="column1">Шаг</th><th class="column2">Ожидаемый результат</th><th class="column3">.</th></tr></thead><tbody id="databody">';
+        for (let step of testcase.steps) {
+            result += '<tr id="dataRowTemplate" bordercolor="#4d4c4d" border="1" ><td class="column1">' +
+                step.title +
+                '</td>';
+            result += '<td class="column2" > ';
+            for (let expectedResult of step.steps) {
+                if (expectedResult.title.startsWith('##'))
+                    result += '<div class="steperror">Факт: ' + expectedResult.title.substring(8) + ' </div>';
+                else
+                    result += expectedResult.title + ' <br>';
+            }
+            result += '</td> ';
+            result += '<td class="column3" > ';
+
+            if (step.status == 2)
+                result +=
+                    '<svg enable-background="new 0 0 32 32" height="32px" id="Слой_1" version="1.1" viewBox="0 0 32 32" width="32px" xml: space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns: xlink="http://www.w3.org/1999/xlink"><path clip-rule="evenodd" d="M27.704,8.397c-0.394-0.391-1.034-0.391-1.428,0  L11.988,22.59l-6.282-6.193c-0.394-0.391-1.034-0.391-1.428,0c-0.394,0.391-0.394,1.024,0,1.414l6.999,6.899  c0.39,0.386,1.039,0.386,1.429,0L27.704,9.811C28.099,9.421,28.099,8.787,27.704,8.397C27.31,8.006,28.099,8.787,27.704,8.397z" fill="#121313" fill-rule="evenodd" id="Check" /><g /><g /><g /><g /><g /><g /></svg>';
+            else
+                result +=
+                    '<svg height="32" style="overflow:visible;enable-background:new 0 0 32 32" viewBox="0 0 32 32" width="32" xml: space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns: xlink="http://www.w3.org/1999/xlink"><g><g id="Error_1_"><g id="Error"><circle cx="16" cy="16" id="BG" r="16" style="fill:#D72828;" /><path d="M14.5,25h3v-3h-3V25z M14.5,6v13h3V6H14.5z" id="Exclamatory_x5F_Sign" style="fill:#E6E6E6;" /></g></g></g></svg>';
+
+            result += '</td> ';
+            result += '</tr>';
+        }
+        result += '</tbody></table>';
+    }
+    let el_down = document.getElementById("view");
+    el_down.innerHTML = result;
+
+    function ChangeElementState(elemId) {
+        var element = document.getElementById(elemId);
+        if (element.style.display !== '')
+            element.style.display = '';
+        else
+            element.style.display = 'none';
+    }
+</script>
+
+
+</body>

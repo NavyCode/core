@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Navy.MsTest.TestClass">
+    <Position X="3.75" Y="0.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAIAAAAAAAEAAAAAAAAAAAAAAAAAAAQAAAA=</HashCode>
+      <FileName>TestClass.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Navy.MsTest.UIRemoteTestClass">
+    <Position X="3.75" Y="6.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAEAAAAAAAAA=</HashCode>
+      <FileName>UIRemoteTestClass.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Navy.MsTest.RemoteTestClass">
+    <Position X="3.75" Y="3.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>YAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAQAAIA=</HashCode>
+      <FileName>RemoteTestClass.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="TestRun" />
+      <Property Name="TestSettings" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Navy.MsTest.UnitTestContext">
+    <Position X="9.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAABgAEAAMIAAAACAAIAACAAAABACAAAACAAA=</HashCode>
+      <FileName>UnitTestContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Navy.MsTest.Remote.TestSettings">
+    <Position X="6.75" Y="4" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAABAAAA=</HashCode>
+      <FileName>Remote\TestSettings.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Navy.MsTest.RunTestInfo">
+    <Position X="0.5" Y="4.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Remote\RunTestInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

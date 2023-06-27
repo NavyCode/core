@@ -362,4 +362,4 @@ MigrationBackup/
 FodyWeavers.xsd
 /ThirdParty/TempNuget
 /NewRepo2
-/NewRepo
+/NewRepoзапускается с помощью Докер, работает с Постгрес или 

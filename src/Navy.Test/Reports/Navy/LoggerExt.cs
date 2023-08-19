@@ -2,7 +2,7 @@
 using System.Linq;
 using Navy.Core.Logger;
 
-namespace Navy.MsTest.Reports
+namespace Navy.Test.Reports.Navy
 {
     public static class LoggerExt
     {

@@ -11,6 +11,14 @@
 	  <TargetFramework>netstandard2.1</TargetFramework>
 	  <Version>4.0.1</Version>
   </PropertyGroup>
+ 
+  <ItemGroup>
+    <None Remove="Reports\Navy\ReportTemplate.html" />
+  </ItemGroup>
+ 
+  <ItemGroup>
+    <EmbeddedResource Include="Reports\Navy\ReportTemplate.html" />
+  </ItemGroup>
 
 
   <ItemGroup>

@@ -3,7 +3,7 @@ using System.Linq;
 using Navy.Core.Logger;
 using Navy.Test.Reports.Allure;
 
-namespace Navy.MsTest.Reports
+namespace Navy.Test.Reports.Navy
 {
     public class TestReport : ITestReport
     {

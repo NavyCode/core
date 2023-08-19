@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Navy.MsTest.Reports
+namespace Navy.Test.Reports.Navy
 { 
     public static class ITestReportExt
     {

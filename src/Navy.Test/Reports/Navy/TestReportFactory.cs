@@ -2,14 +2,14 @@
 using System.Reflection;
 using Newtonsoft.Json;
 
-namespace Navy.MsTest.Reports
+namespace Navy.Test.Reports.Navy
 {
     public class TestReportFactory
     {
         public static string ToHtml(TestReport report)
         {
             using (var resource = Assembly.GetExecutingAssembly()
-                .GetManifestResourceStream("Navy.MsTest.Reports.ReportTemplate.html"))
+                .GetManifestResourceStream("Navy.Test.Reports.Navy.ReportTemplate.html"))
             using (var reader = new StreamReader(resource))
             {
                 var template = reader.ReadToEnd();

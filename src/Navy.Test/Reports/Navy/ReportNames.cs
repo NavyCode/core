@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Navy.MsTest.Reports
+namespace Navy.Test.Reports.Navy
 {
     public class ReportNames
     {

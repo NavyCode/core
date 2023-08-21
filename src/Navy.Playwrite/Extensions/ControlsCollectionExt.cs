@@ -8,7 +8,7 @@ namespace Navy.Playwright
 {
     public static class ControlsCollectionExt
     {
-        public static async Task<ControlsCollection<T>> WaitCountAsync<T>(this ControlsCollection<T> el, int expected, Func<T, bool> predicate = null
+        public static async Task<ControlCollection<T>> WaitCountAsync<T>(this ControlCollection<T> el, int expected, Func<T, bool> predicate = null
             , TimeSpan? timeout = null, string errorMessage = null) where T : Control
         {
             await Asserts.WaitNoErrorAsync(async () => 
@@ -21,7 +21,7 @@ namespace Navy.Playwright
             return el;
         }
 
-        public static async Task<T> WaitFirstAsync<T>(this ControlsCollection<T> el, Func<T, bool> func = null
+        public static async Task<T> WaitFirstAsync<T>(this ControlCollection<T> el, Func<T, bool> func = null
             , TimeSpan? timeout = null, string errorMessage = null) where T : Control
         {
             T result = default;

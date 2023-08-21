@@ -18,25 +18,21 @@ namespace Navy.Playwright
     public class Control :  ILocator
     {
         public ILocator Element { get; set; }
-        public ControlInfo Info { get; set; }
-        public void Wrap(ILocator element)
-           => Element = element;
+        public Meta Meta { get; set; }
 
-        public void Wrap(Control control)
-            => Wrap(control.Element);
-
-
-        public static T Create<T>(ILocator obj) where T : Control
+        public static Control Create(ILocator obj, Meta meta) => Create<Control>(obj, meta);
+        public static T Create<T>(ILocator obj, Meta meta) where T : Control
         {
             var type = typeof(T);
             var result = (Control)Activator.CreateInstance(type);
-            result.Wrap(obj);
+            result.Element = obj;
+            result.Meta = meta;
             return (T)result;
         }
 
         public static T Create<T>(Control control) where T : Control
         {
-            return Create<T>(control.Element);
+            return Create<T>(control.Element, control.Meta);
         }
 
 

@@ -1,6 +1,7 @@
 #region
 
-using Microsoft.Playwright;  
+using Microsoft.Playwright;
+using Navy.Core.Assertion;
 using System;
 using System.Threading.Tasks; 
 

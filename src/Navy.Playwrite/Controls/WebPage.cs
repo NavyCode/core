@@ -4,20 +4,17 @@ using System;
 
 namespace Navy.Playwright
 {
-    public class WebPage  
+    public class WebPage 
     {
-        public WebPage(IPage page)
-        {
-            Page = page;  
-        }
         public IPage Page { get; private set; }
         public IBrowserContext Context => Page.Context;
         public IBrowser Browser => Page.Context.Browser;
 
-        public static T Create<T>(IPage driver) where T : WebPage
+        public static T Create<T>(IPage page) where T : WebPage
         {
             var type = typeof(T);
-            var result = Activator.CreateInstance(type, driver); 
+            var result = Activator.CreateInstance(type);
+            ((WebPage)result).Page = page;
             return (T)result;
         }
     }

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using Navy.Core.Assertion;
+using Navy.Core.Assertion;
 
 #endregion
 
@@ -19,8 +20,8 @@ namespace Navy.Test.Assertion
     {
         public static void AssertFiles(string expectedPath, string actualPath, Encoding encoding)
         {
-            Asserts.IsTrue(File.Exists(expectedPath), "Expected file '{0}' not found", expectedPath);
-            Asserts.IsTrue(File.Exists(actualPath), "Actual file '{0}' not found", actualPath);
+            Asserts.IsTrue(File.Exists(expectedPath), $"Expected file '{expectedPath}' not found");
+            Asserts.IsTrue(File.Exists(actualPath), $"Actual file '{actualPath}' not found");
             var actualLines = NotNullLines(File.ReadLines(actualPath, encoding));
             var expectedLines = NotNullLines(File.ReadLines(expectedPath, encoding)).ToList();
             var errSuffix = $"in files '{expectedPath}' and '{actualPath}' not equals";
@@ -28,11 +29,11 @@ namespace Navy.Test.Assertion
             foreach (var actualLine in actualLines)
             {
                 var expectedLine = expectedLines.Count > actualCount ? expectedLines[actualCount] : string.Empty;
-                Asserts.AreEqual(expectedLine.Trim(), actualLine.Trim(), "Line ~{0} {1}", actualCount, errSuffix);
+                Asserts.AreEqual(expectedLine.Trim(), actualLine.Trim(), $"Line ~{actualCount} {errSuffix}");
                 actualCount++;
             }
 
-            Asserts.AreEqual(expectedLines.Count, actualCount, "Error in count of nonempty lines {0}", errSuffix);
+            Asserts.AreEqual(expectedLines.Count, actualCount, $"Error in count of nonempty lines {errSuffix}");
         }
 
 

@@ -6,6 +6,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Navy.Core.Extensions;
 using Navy.Core.Logger;
 using Navy.Test.Reports.Allure;
+using Navy.Test.Reports.Navy;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 

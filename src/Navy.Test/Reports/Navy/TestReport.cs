@@ -26,7 +26,7 @@ namespace Navy.Test.Reports.Navy
 
         public static TestReport Empty { get; } = new TestReport("", NullLogger.Instance);
 
-        internal testsuiteresult AllureReport { get; } = new testsuiteresult();
+        public testsuiteresult AllureReport { get; } = new testsuiteresult();
 
         private testcaseresult _lastTestCaseResultResult => AllureReport.testcases?.LastOrDefault();
         private step _lastStepResult => _lastTestCaseResultResult?.steps?.LastOrDefault();
@@ -150,7 +150,7 @@ namespace Navy.Test.Reports.Navy
             return text1 + AllureFactory.NewLine + text2;
         }
 
-        internal void Finish(status status)
+        public void Finish(status status)
         {
             FinishLastStep(status);
             FinishTestResult(status);
